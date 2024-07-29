@@ -32,31 +32,72 @@ while true; do
         1)
             display_installation_method_menu "Skyport"
             case $method_choice in
-                1) echo "Installing Skyport on localhost";; 
-                2) echo "Installing Skyport with Cloudflare tunnels";;
-                3) echo "Installing Skyport with ngrok";; 
-                4) exit;;
-                *) echo "Invalid choice";;
+                1)
+                    echo "Installing Skyport on localhost..."
+                    sudo apt install git sudo wget -y
+                    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+                    source ~/.bashrc
+                    nvm install node
+                    git clone https://github.com/skyportlabs/panel
+                    cd panel
+                    npm install
+                    npm run seed
+                    npm run createUser
+                    node .
+                    echo "Skyport is done installing. Go to https://localhost:3001"
+                    ;;
+                2)
+                    echo "Installing Skyport with Cloudflare tunnels..."
+                    ;;
+                3)
+                    echo "Installing Skyport with ngrok..."
+                    ;;
+                4)
+                    exit
+                    ;;
+                *)
+                    echo "Invalid choice"
+                    ;;
             esac
             ;;
         2)
             display_installation_method_menu "Skyportd"
             case $method_choice in
-                1) echo "Installing Skyportd on localhost";;
-                2) echo "Installing Skyportd with Cloudflare tunnels";;
-                3) echo "Installing Skyportd with ngrok";; 
-                4) exit;;
-                *) echo "Invalid choice";;
+                1)
+                    echo "Installing Skyportd on localhost..."
+                    ;;
+                2)
+                    echo "Installing Skyportd with Cloudflare tunnels..."
+                    ;;
+                3)
+                    echo "Installing Skyportd with ngrok..."
+                    ;;
+                4)
+                    exit
+                    ;;
+                *)
+                    echo "Invalid choice"
+                    ;;
             esac
             ;;
         3)
             display_installation_method_menu "Palpod"
             case $method_choice in
-                1) echo "Installing Palpod on localhost";; 
-                2) echo "Installing Palpod with Cloudflare tunnels";;
-                3) echo "Installing Palpod with ngrok";;
-                4) exit;;
-                *) echo "Invalid choice";;
+                1)
+                    echo "Installing Palpod on localhost..."
+                    ;;
+                2)
+                    echo "Installing Palpod with Cloudflare tunnels..."
+                    ;;
+                3)
+                    echo "Installing Palpod with ngrok..."
+                    ;;
+                4)
+                    exit
+                    ;;
+                *)
+                    echo "Invalid choice"
+                    ;;
             esac
             ;;
         4)
