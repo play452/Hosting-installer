@@ -48,6 +48,23 @@ while true; do
                     ;;
                 2)
                     echo "Installing Skyport with Cloudflare tunnels..."
+                    sudo apt install git sudo wget curl -y
+                    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+                    source ~/.bashrc
+                    nvm install node
+                    git clone https://github.com/skyportlabs/panel
+                    cd panel
+                    npm install
+                    npm install pm2 -g
+                    npm run seed
+                    npm run createUser
+                    pm2 start index.js
+                    echo "Now installing Cloudflare tunnels"
+                    curl -L https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb --output cloudflared.deb
+                    sudo dpkg -i cloudflared.deb
+                    cloudflared tunnel login
+                    cloudflared tunnel create skyport1
+                    echo "I dont know how to automate this part so please go to https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-local-tunnel/"
                     ;;
                 3)
                     echo "Installing Skyport with ngrok..."
