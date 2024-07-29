@@ -16,7 +16,6 @@ display_main_menu() {
     return $choice
 }
 
-# Function to display the installation method menu
 display_installation_method_menu() {
     echo "How do you want to install $1?"
     echo "1. Localhost"
@@ -27,7 +26,6 @@ display_installation_method_menu() {
     return $method_choice
 }
 
-# Main loop
 while true; do
     display_main_menu
     case $choice in
