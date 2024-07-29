@@ -1,6 +1,12 @@
 #!/bin/bash
 
+red='\033[0;31m'
+green='\033[0;32m'
+reset='\033[0m'
+
 display_main_menu() {
+    echo -e "${red}Made by play451${reset}"
+    echo -e "${green}Please note that I am not affiliated with any of these projects, I just made this for fun.${reset}"
     echo "What do you want to install?"
     echo "1. Skyport"
     echo "2. Skyportd"
@@ -10,6 +16,7 @@ display_main_menu() {
     return $choice
 }
 
+# Function to display the installation method menu
 display_installation_method_menu() {
     echo "How do you want to install $1?"
     echo "1. Localhost"
