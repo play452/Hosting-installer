@@ -31,6 +31,7 @@ while true; do
             display_installation_method_menu "Skyport"
             case $method_choice in
                 1)
+                    cd ~
                     bash <(curl -s https://raw.githubusercontent.com/hydrenlabs/Skyport-Installer/main/install.sh)
                     ;;
                 4)
@@ -49,7 +50,7 @@ case $method_choice in
     1)
         echo "Installing Skyportd ..."
         git clone https://github.com/skyportlabs/skyportd.git && cd skyportd && npm install 
-        $user_command  # Executes the command input by the user
+        $user_command 
         npm i -g pm2 
         pm2 start index.js --name daemon
         ;;
